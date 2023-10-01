@@ -5,23 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35db1ef9-763a-4769-9538-f20adc9402a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Resource/campeonato-brasileiro-estatisticas-full.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Resource/campeonato-brasileiro-full.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Resource/campeonato-brasileiro-gols.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/test/java/AppTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/triangle_project/triangle.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Recursividade/.idea/Recursividade.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Recursividade/out/production/Recursividade/.idea/Recursividade.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Aula4_Exercicio6/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../CustomWrintable/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../CustomWrintable/.idea/CustomWrintable.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../CustomWrintable/.idea/misc.xml" beforeDir="false" />
@@ -91,9 +80,16 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\victo\OneDrive\Área de Trabalho\CampeonatoBrasileiro\CampeonatoBrasileiro\src\main\Resource" />
+      <recent name="C:\Users\victo\OneDrive\Área de Trabalho\CampeonatoBrasileiro\CampeonatoBrasileiro\src\main\resources" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -102,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696119550200</updated>
-      <workItem from="1696119551229" duration="652000" />
+      <workItem from="1696119551229" duration="1131000" />
     </task>
     <servers />
   </component>
