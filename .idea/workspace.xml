@@ -5,53 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35db1ef9-763a-4769-9538-f20adc9402a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/triangle_project/triangle.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Recursividade/.idea/Recursividade.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Recursividade/out/production/Recursividade/.idea/Recursividade.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Aula4_Exercicio6/Main.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CustomWrintable/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CustomWrintable/.idea/CustomWrintable.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CustomWrintable/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CustomWrintable/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CustomWrintable/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CustomWrintable/AverageTemperature.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CustomWrintable/FireAvgTempWritable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CustomWrintable/FireHigherWritable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CustomWrintable/HigherAverageTemperature.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/Ada_Fahrenheit/Calculo_Fahrenheit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX01/EX1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX02/EX2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX03/EX3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX04/EX4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX05/EX5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX06/EX6.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/Frutaria/Compra.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/Frutaria/Frutaria.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/OrdenarNumeros/OrdenarNumeros.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/ParesImpares/ParesImpares.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/Aula03/A03EX01/EX1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/Aula03/A03EX02/EX2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/Aula03/A03EX03/EX3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/Aula03/A03EX04/EX4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/Aula03/A03EX05/EX5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/Aula03/A03EX06/EX6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/Calculo_Fahrenheit/Calculo_Fahrenheit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/Frutaria/Compra.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/Frutaria/Frutaria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/OrdenarNumeros/OrdenarNumeros.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/ParesImpares/ParesImpares.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Nova pasta/br/com/ada/catalogoFilmes/Principal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Nova pasta/br/com/ada/catalogoFilmes/service/AtorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/MainLeituraCsv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LeitorCartoesCsv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LeitorCompletoCsv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LeitorEstatisticasCsv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LeitorGolsCsv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +31,37 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/base-project" />
+                    <option name="lastUsedInstant" value="1696259670" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1696259669" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -82,7 +77,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/base-project",
+    "last_opened_file_path": "/home/math/ws/ada/Curso/CampeonatoBrasileiroCSV",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -100,6 +96,37 @@
       <recent name="C:\Users\victo\OneDrive\Área de Trabalho\CampeonatoBrasileiro\CampeonatoBrasileiro\src\main\resources" />
       <recent name="C:\Users\victo\OneDrive\Área de Trabalho\CampeonatoBrasileiro\CampeonatoBrasileiro\src\main\Resource" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="repository" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="CampeonatoBrasileiro" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainLeituraCsv" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="service.MainLeituraCsv" />
+      <module name="CampeonatoBrasileiro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainLeituraCsv" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -112,6 +139,9 @@
       <workItem from="1696119551229" duration="1131000" />
       <workItem from="1696121511386" duration="386000" />
       <workItem from="1696158298823" duration="2285000" />
+      <workItem from="1696190489902" duration="2593000" />
+      <workItem from="1696193220361" duration="131000" />
+      <workItem from="1696193361337" duration="19780000" />
     </task>
     <servers />
   </component>
