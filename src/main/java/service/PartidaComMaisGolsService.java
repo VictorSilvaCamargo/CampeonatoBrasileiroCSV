@@ -19,6 +19,8 @@ public class PartidaComMaisGolsService {
     public String partidaComMaisGols(){
         List<DadosFullFutebol>  dadosFullFutebollList = dadosFullFutebolRepository.listaDadosFullFutebol();
 
+
+
         Map<DadosFullFutebol, Integer> partidaResultadosTotais = dadosFullFutebollList.stream()
                 .collect(Collectors.toMap(
                         (DadosFullFutebol partida) -> partida,
