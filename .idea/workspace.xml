@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35db1ef9-763a-4769-9538-f20adc9402a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/MainLeituraCsv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LeitorCartoesCsv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LeitorCompletoCsv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LeitorEstatisticasCsv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LeitorGolsCsv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/archetype-resources/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +58,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2W8gJgHoktnnLiiBkgnHQeQojXZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -77,8 +71,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/base-project",
-    "last_opened_file_path": "/home/math/ws/ada/Curso/CampeonatoBrasileiroCSV",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/ligia/Downloads/SANTANDER2023/CampeonatoBrasileiroCSV",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,6 +91,7 @@
       <recent name="C:\Users\victo\OneDrive\Área de Trabalho\CampeonatoBrasileiro\CampeonatoBrasileiro\src\main\Resource" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="service" />
       <recent name="repository" />
     </key>
   </component>
@@ -142,6 +137,7 @@
       <workItem from="1696190489902" duration="2593000" />
       <workItem from="1696193220361" duration="131000" />
       <workItem from="1696193361337" duration="19780000" />
+      <workItem from="1696284546204" duration="13889000" />
     </task>
     <servers />
   </component>
