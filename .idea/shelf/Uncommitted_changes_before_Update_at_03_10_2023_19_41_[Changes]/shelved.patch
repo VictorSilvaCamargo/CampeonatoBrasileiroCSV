@@ -1,0 +1,218 @@
+Index: src/main/java/service/JogadorComMaisGolsPenaltisService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package service;\r\n\r\nimport java.util.Collections;\r\nimport java.util.List;\r\nimport java.util.Map;\r\nimport java.util.stream.Collectors;\r\n\r\nimport model.DadosGolsFutebol;\r\nimport repository.DadosGolsFutebolRepository;\r\n\r\npublic class JogadorComMaisGolsPenaltisService {\r\n\r\n    private static DadosGolsFutebolRepository dadosGolsFutebolRepository;\r\n\r\n    public JogadorComMaisGolsPenaltisService(DadosGolsFutebolRepository dadosGols) {\r\n        dadosGolsFutebolRepository = dadosGols;\r\n    }\r\n\r\n    public Map<String, Long> execute() {\r\n        List<DadosGolsFutebol> dados = dadosGolsFutebolRepository.listaDadosGolsFutebol();\r\n\r\n        Map<String, Long> jogadorMaisGols = dados.stream().filter(linha -> \"Penalty\".equals(linha.getTipoDeGol()))\r\n                .collect(Collectors.groupingBy(line -> line.getAtleta(), Collectors.counting()));\r\n\r\n        Map<String, Long> result = Map.of(\r\n                Collections.max(jogadorMaisGols.entrySet(), Map.Entry.comparingByValue()).getKey(),\r\n                Collections.max(jogadorMaisGols.entrySet(), Map.Entry.comparingByValue()).getValue());\r\n\r\n        return result;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/service/JogadorComMaisGolsPenaltisService.java b/src/main/java/service/JogadorComMaisGolsPenaltisService.java
+--- a/src/main/java/service/JogadorComMaisGolsPenaltisService.java	(revision 660754be8e7b3894927d90e4329c9036dab8d728)
++++ b/src/main/java/service/JogadorComMaisGolsPenaltisService.java	(date 1696372837023)
+@@ -27,4 +27,5 @@
+                 Collections.max(jogadorMaisGols.entrySet(), Map.Entry.comparingByValue()).getValue());
+ 
+         return result;
++    }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"35db1ef9-763a-4769-9538-f20adc9402a4\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"ROOT_SYNC\" value=\"DONT_SYNC\" />\r\n  </component>\r\n  <component name=\"GitToolBoxStore\">\r\n    <option name=\"recentBranches\">\r\n      <RecentBranches>\r\n        <option name=\"branchesForRepo\">\r\n          <list>\r\n            <RecentBranchesForRepo>\r\n              <option name=\"branches\">\r\n                <list>\r\n                  <RecentBranch>\r\n                    <option name=\"branchName\" value=\"feature/base-project\" />\r\n                    <option name=\"lastUsedInstant\" value=\"1696259670\" />\r\n                  </RecentBranch>\r\n                  <RecentBranch>\r\n                    <option name=\"branchName\" value=\"main\" />\r\n                    <option name=\"lastUsedInstant\" value=\"1696259669\" />\r\n                  </RecentBranch>\r\n                </list>\r\n              </option>\r\n              <option name=\"repositoryRootUrl\" value=\"file://$PROJECT_DIR$\" />\r\n            </RecentBranchesForRepo>\r\n          </list>\r\n        </option>\r\n      </RecentBranches>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2W8gJgHoktnnLiiBkgnHQeQojXZ\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"last_opened_file_path\": \"/Users/ligia/Downloads/SANTANDER2023/CampeonatoBrasileiroCSV\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"preferences.keymap\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;feature/base-project&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;/home/math/ws/ada/Curso/CampeonatoBrasileiroCSV&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\victo\\OneDrive\\Área de Trabalho\\CampeonatoBrasileiro\\CampeonatoBrasileiro\\src\\main\\resources\" />\r\n      <recent name=\"C:\\Users\\victo\\OneDrive\\Área de Trabalho\\CampeonatoBrasileiro\\CampeonatoBrasileiro\\src\\main\\Resource\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"service\" />\r\n      <recent name=\"repository\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"CampeonatoBrasileiro\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MainLeituraCsv\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"service.MainLeituraCsv\" />\r\n      <module name=\"CampeonatoBrasileiro\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"service.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.MainLeituraCsv\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"35db1ef9-763a-4769-9538-f20adc9402a4\" name=\"Changes\" comment=\"\" />\r\n      <created>1696119550200</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1696119550200</updated>\r\n      <workItem from=\"1696119551229\" duration=\"1131000\" />\r\n      <workItem from=\"1696121511386\" duration=\"386000\" />\r\n      <workItem from=\"1696158298823\" duration=\"2285000\" />\r\n      <workItem from=\"1696190489902\" duration=\"2593000\" />\r\n      <workItem from=\"1696193220361\" duration=\"131000\" />\r\n      <workItem from=\"1696193361337\" duration=\"19780000\" />\r\n\r\n      <workItem from=\"1696284546204\" duration=\"13889000\" />\r\n\r\n      <workItem from=\"1696283689341\" duration=\"5427000\" />\r\n      <workItem from=\"1696294355914\" duration=\"1329000\" />\r\n      <workItem from=\"1696365848188\" duration=\"950000\" />\r\n\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 660754be8e7b3894927d90e4329c9036dab8d728)
++++ b/.idea/workspace.xml	(date 1696372810615)
+@@ -4,186 +4,25 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="35db1ef9-763a-4769-9538-f20adc9402a4" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="5ceaa335-9b5b-4a18-b8a6-70128e950e01" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="Class" />
+-      </list>
+-    </option>
+   </component>
+   <component name="Git.Settings">
+-    <option name="RECENT_BRANCH_BY_REPOSITORY">
+-      <map>
+-        <entry key="$PROJECT_DIR$" value="main" />
+-      </map>
+-    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-    <option name="ROOT_SYNC" value="DONT_SYNC" />
++    <option name="ROOT_SYNC" value="SYNC" />
+   </component>
+-  <component name="GitToolBoxStore">
+-    <option name="recentBranches">
+-      <RecentBranches>
+-        <option name="branchesForRepo">
+-          <list>
+-            <RecentBranchesForRepo>
+-              <option name="branches">
+-                <list>
+-                  <RecentBranch>
+-                    <option name="branchName" value="feature/base-project" />
+-                    <option name="lastUsedInstant" value="1696259670" />
+-                  </RecentBranch>
+-                  <RecentBranch>
+-                    <option name="branchName" value="main" />
+-                    <option name="lastUsedInstant" value="1696259669" />
+-                  </RecentBranch>
+-                </list>
+-              </option>
+-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+-            </RecentBranchesForRepo>
+-          </list>
+-        </option>
+-      </RecentBranches>
+-    </option>
+-  </component>
+-  <component name="ProjectColorInfo">{
+-  &quot;associatedIndex&quot;: 3
+-}</component>
+-  <component name="ProjectId" id="2W8gJgHoktnnLiiBkgnHQeQojXZ" />
+-  <component name="ProjectLevelVcsManager">
+-    <ConfirmationsSetting value="1" id="Add" />
+-  </component>
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+-
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "WebServerToolWindowFactoryState": "false",
+     "git-widget-placeholder": "main",
+-    "last_opened_file_path": "/Users/ligia/Downloads/SANTANDER2023/CampeonatoBrasileiroCSV",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Project",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2",
+-    "settings.editor.selected.configurable": "preferences.keymap",
+-    "vue.rearranger.settings.migration": "true"
+-
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;feature/base-project&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/home/math/ws/ada/Curso/CampeonatoBrasileiroCSV&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+-
++    "node.js.selected.package.tslint": "(autodetect)"
+   }
+-}</component>
+-  <component name="RecentsManager">
+-    <key name="MoveFile.RECENT_KEYS">
+-      <recent name="C:\Users\victo\OneDrive\Área de Trabalho\CampeonatoBrasileiro\CampeonatoBrasileiro\src\main\resources" />
+-      <recent name="C:\Users\victo\OneDrive\Área de Trabalho\CampeonatoBrasileiro\CampeonatoBrasileiro\src\main\Resource" />
+-    </key>
+-    <key name="CopyClassDialog.RECENTS_KEY">
+-      <recent name="service" />
+-      <recent name="repository" />
+-    </key>
+-  </component>
+-  <component name="RunManager" selected="Application.Main">
+-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="Main" />
+-      <module name="CampeonatoBrasileiro" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="MainLeituraCsv" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="service.MainLeituraCsv" />
+-      <module name="CampeonatoBrasileiro" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="service.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <recent_temporary>
+-      <list>
+-        <item itemvalue="Application.Main" />
+-        <item itemvalue="Application.MainLeituraCsv" />
+-      </list>
+-    </recent_temporary>
+-  </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++}]]></component>
+   <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="35db1ef9-763a-4769-9538-f20adc9402a4" name="Changes" comment="" />
+-      <created>1696119550200</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1696119550200</updated>
+-      <workItem from="1696119551229" duration="1131000" />
+-      <workItem from="1696121511386" duration="386000" />
+-      <workItem from="1696158298823" duration="2285000" />
+-      <workItem from="1696190489902" duration="2593000" />
+-      <workItem from="1696193220361" duration="131000" />
+-      <workItem from="1696193361337" duration="19780000" />
+-
+-      <workItem from="1696284546204" duration="13889000" />
+-
+-      <workItem from="1696283689341" duration="5427000" />
+-      <workItem from="1696294355914" duration="1329000" />
+-      <workItem from="1696365848188" duration="950000" />
+-
+-    </task>
+     <servers />
+   </component>
+-  <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="3" />
+-  </component>
+-  <component name="Vcs.Log.Tabs.Properties">
+-    <option name="TAB_STATES">
+-      <map>
+-        <entry key="MAIN">
+-          <value>
+-            <State />
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-  </component>
+-  <component name="VcsManagerConfiguration">
+-    <option name="LAST_COMMIT_MESSAGE" value="" />
+-  </component>
+ </project>
+\ No newline at end of file

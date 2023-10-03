@@ -27,4 +27,5 @@ public class JogadorComMaisGolsPenaltisService {
                 Collections.max(jogadorMaisGols.entrySet(), Map.Entry.comparingByValue()).getValue());
 
         return result;
+    }
 }

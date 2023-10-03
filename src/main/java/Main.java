@@ -23,16 +23,7 @@ public class Main {
         dadosGolsFutebolRepository.lerDadosCartoesFutebolCSV();
 
         // Executar as curiosidades aqui
-        DadosFullFutebolRepository repository = new DadosFullFutebolRepository();
 
-        repository.lerDadosFullFutebolCSV();
-
-        List<DadosFullFutebol> partidas = repository.listaDadosFullFutebol();
-
-        VencedorJogos2008.encontrarTimeComMaisVitoriasNoAno2008EImprimir(partidas);
-
-        // Encontre o estado com menos jogos no período de 2003 a 2022
-        EstadoMenosJogos.encontrarEstadoComMenosJogosNoPeriodoEImprimir(partidas);
 
     }
 
