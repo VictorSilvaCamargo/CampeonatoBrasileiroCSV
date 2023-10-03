@@ -1,7 +1,12 @@
+import model.DadosFullFutebol;
 import repository.DadosCartoesFutebolRepository;
 import repository.DadosEstatisticasFutebolRepository;
 import repository.DadosFullFutebolRepository;
 import repository.DadosGolsFutebolRepository;
+import service.EstadoMenosJogos;
+import service.VencedorJogos2008;
+
+import java.util.List;
 
 public class Main {
 
@@ -18,6 +23,17 @@ public class Main {
         dadosGolsFutebolRepository.lerDadosCartoesFutebolCSV();
 
         // Executar as curiosidades aqui
+        DadosFullFutebolRepository repository = new DadosFullFutebolRepository();
+
+        repository.lerDadosFullFutebolCSV();
+
+        List<DadosFullFutebol> partidas = repository.listaDadosFullFutebol();
+
+        VencedorJogos2008.encontrarTimeComMaisVitoriasNoAno2008EImprimir(partidas);
+
+        // Encontre o estado com menos jogos no período de 2003 a 2022
+        EstadoMenosJogos.encontrarEstadoComMenosJogosNoPeriodoEImprimir(partidas);
+
     }
 
 }

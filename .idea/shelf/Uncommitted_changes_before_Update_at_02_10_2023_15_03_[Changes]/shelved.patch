@@ -1,0 +1,1095 @@
+Index: ../../CustomWrintable/FireHigherWritable.java
+===================================================================
+diff --git a/../../CustomWrintable/FireHigherWritable.java b/../../CustomWrintable/FireHigherWritable.java
+deleted file mode 100644
+--- a/../../CustomWrintable/FireHigherWritable.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,81 +0,0 @@
+-package advanced.customwritable;
+-import org.apache.hadoop.io.WritableComparable;
+-import java.io.DataInput;
+-import java.io.DataOutput;
+-import java.io.IOException;
+-import java.util.Objects;
+-/*
+-Precisamos que essa nova classe seja serializável (Writable) para a transmissão
+-dos dados entre os DataNodes
+-No Hadoop, o tipo Writable é sempre um Java Bean.
+-Java Bean é caracterizado por:
+-- ter um construtor padrão (vazio),
+-- atributos privados,
+-- getters e setters para cada atributo
+-LEMBRETE: a classe deve ser comparável com ela mesma (etapa sort/shuffle)
+-*/
+-public class FireHigherWritable implements WritableComparable<FireHigherWritable> {
+-    private String mes;
+-    private float temperatura;
+-    public FireHigherWritable() {
+-    }
+-    public FireHigherWritable(String mes, float temperatura) {
+-        this.mes = mes;
+-        this.temperatura = temperatura;
+-    }
+-    public String getMes() {
+-        return mes;
+-    }
+-    public void setMes(String mes) {
+-        this.mes = mes;
+-    }
+-    public float getTemperatura() {
+-        return temperatura;
+-    }
+-    public void setTemperatura(float temperatura) {
+-        this.temperatura = temperatura;
+-    }
+-    @Override
+-    public boolean equals(Object o) {
+-        if (this == o) return true;
+-        if (o == null || getClass() != o.getClass()) return false;
+-        FireHigherWritable that = (FireHigherWritable) o;
+-        return Float.compare(that.temperatura, temperatura) == 0 &&
+-                Objects.equals(mes, that.mes);
+-    }
+-    @Override
+-    public int hashCode() {
+-        return Objects.hash(mes, temperatura);
+-    }
+-    @Override
+-    public void write(DataOutput dataOutput) throws IOException {
+-        dataOutput.writeUTF(mes);
+-        dataOutput.writeFloat(temperatura);
+-    }
+-    @Override
+-    public void readFields(DataInput dataInput) throws IOException {
+-        mes = dataInput.readUTF();
+-        temperatura = dataInput.readFloat();
+-    }
+-    @Override
+-    public String toString() {
+-        return "FireHigherWritable{" +
+-                "mes='" + mes + '\'' +
+-                ", temperatura=" + temperatura +
+-                '}';
+-    }
+-// método que realiza o comparativo entre diferentes objetos na etapa de
+-    sort/shuffle
+-    // para a ordenação de acordo com as chaves
+-// dado 2 objetos, comparar se um é maior que o outro, menor ou igual com base
+-    no hashCode (valores dos atributos)
+-    @Override
+-    public int compareTo(FireHigherWritable o) {
+-        if(this.hashCode() < o.hashCode()) {
+-            return -1;
+-        }else if(this.hashCode() > o.hashCode()){
+-            return 1;
+-        }
+-        return 0;
+-    }
+-}
+\ No newline at end of file
+Index: ../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX01/EX1.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX01/EX1.java b/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX01/EX1.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX01/EX1.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,54 +0,0 @@
+-package Aula03.A03EX01;
+-
+-import java.util.Scanner;
+-
+-public class EX1 {
+-    public static double custoCompra(int quantidade)
+-    {
+-        double total;
+-        if(quantidade > 10 ){
+-            total = quantidade * 1.25;
+-        } else{
+-            total = quantidade * 1.45;
+-        }
+-        return total;
+-    }
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-        int quantidadePera;
+-        int quantidadeMaca;
+-        int quantidadeLaranja;
+-        int quantidadeTomate;
+-        int quantidadeCaqui;
+-
+-
+-        System.out.println("Bem Vindo a frutaria da Maria!");
+-        System.out.println("Essas são as frutas disponíveis:");
+-        System.out.println("Pera | Maçã | Laranja | Tomate | Caqui ");
+-        System.out.println("Estamos com promoção!!! \n a cada 10 frutas ou mais cada uma sai por R$ 1,25! \n Caso menos de 10, cada uma sai por R$ 1,45.");
+-
+-        System.out.println("Digite quantas Peras voce vai querer?:");
+-        quantidadePera = scanner.nextInt();
+-        System.out.println(custoCompra(quantidadePera));
+-
+-        System.out.println("Digite quantas Maçãs voce vai querer?:");
+-        quantidadeMaca = scanner.nextInt();
+-        System.out.println(custoCompra(quantidadeMaca));
+-
+-        System.out.println("Digite quantas Laranjas voce vai querer?:");
+-        quantidadeLaranja = scanner.nextInt();
+-        System.out.println(custoCompra(quantidadeLaranja));
+-
+-        System.out.println("Digite quantas Tomates voce vai querer?:");
+-        quantidadeTomate = scanner.nextInt();
+-        System.out.println(custoCompra(quantidadeTomate));
+-
+-        System.out.println("Digite quantas Tomates voce vai querer?:");
+-        quantidadeCaqui = scanner.nextInt();
+-        System.out.println(custoCompra(quantidadeCaqui));
+-
+-
+-    }
+-}
+-
+Index: ../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX05/EX5.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX05/EX5.java b/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX05/EX5.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX05/EX5.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,31 +0,0 @@
+-package Aula03.A03EX05;
+-
+-public class EX5
+-{
+-    public static boolean elementosRepetidos(double[] input)
+-    {
+-
+-        for (int i = 0; i < input.length - 1; i++)
+-        {
+-            for (int j = i + 1; j < input.length; j++)
+-            {
+-
+-                if (input[i] == input[j])
+-                {
+-                    return true;
+-                }
+-            }
+-        }
+-
+-        return false;
+-    }
+-
+-    public static void main(String[] args)
+-    {
+-        double[] arr1 = {2.5, 3.2, 4.5, 5, 6};
+-        double[] arr2 = {2, 2, 3.1, 4, 4.1, 4.1};
+-
+-        System.out.println(elementosRepetidos(arr1));
+-        System.out.println(elementosRepetidos(arr2));
+-    }
+-}
+Index: ../../LogicaDeProgramacao_AdaSantander/Frutaria/Frutaria.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/Frutaria/Frutaria.java b/../../LogicaDeProgramacao_AdaSantander/Frutaria/Frutaria.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/Frutaria/Frutaria.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,31 +0,0 @@
+-package Frutaria;
+-
+-import java.util.Scanner;
+-
+-public class Frutaria {
+-
+-    public static void main(String[] args) {
+-        Scanner scanner = new Scanner(System.in);
+-
+-        Compra compra = new Compra();
+-
+-        while (true) {
+-            System.out.print("Digite o nome da fruta (ou 'parar' para finalizar): ");
+-            String fruta = scanner.nextLine();
+-
+-            if (fruta.equalsIgnoreCase("parar")) {
+-                break;
+-            }
+-
+-            System.out.print("Digite a quantidade de frutas: ");
+-            int quantidade = scanner.nextInt();
+-            scanner.nextLine();
+-
+-            compra.adicionarFruta(fruta, quantidade);
+-        }
+-
+-        double precoTotal = compra.calcularPrecoTotal();
+-        System.out.printf("O preço total da compra é: R$%.2f%n", precoTotal);
+-    }
+-}
+-
+Index: ../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX02/EX2.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX02/EX2.java b/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX02/EX2.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX02/EX2.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,46 +0,0 @@
+-package Aula03.A03EX02;
+-
+-import java.util.Scanner;
+-
+-public class EX2 {
+-
+-    public static double[] custosCarro( double[] input) {
+-
+-        double[] percentuais = new double[2];
+-
+-        double precoFabrica = input[0];
+-        double custoDistribuidor = input[1];
+-        double precoImpostos = input[2];
+-
+-        double percentualCustoDistribuidor = (custoDistribuidor / precoFabrica) * 100;
+-        double percentualCustoImpostos = (precoImpostos / precoFabrica) * 100;
+-
+-        percentuais[0] = Math.round(percentualCustoDistribuidor * 100.0) / 100.0;
+-        percentuais[1] = Math.round(percentualCustoImpostos * 100.0) / 100.0;
+-
+-        return percentuais;
+-
+-    }
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner =  new Scanner(System.in);
+-
+-        double[] Carro1 = new double[3];
+-
+-
+-        System.out.println("Digite o preço do carro:");
+-        Carro1[0] = scanner.nextDouble();
+-        System.out.println("Digite o valor de custo com o distribuidor:");
+-        Carro1[1] = scanner.nextDouble();
+-        System.out.println("Digite o valor do preço dos impostos:");
+-        Carro1[2] = scanner.nextDouble();
+-
+-        double[] percentuais = custosCarro(Carro1);
+-
+-        System.out.println("Percentual do custo do distribuidor: " + percentuais[0] + "%");
+-        System.out.println("Percentual do custo dos impostos: " + percentuais[1] + "%");
+-
+-
+-    }
+-}
+Index: ../../LogicaDeProgramacao_AdaSantander/OrdenarNumeros/OrdenarNumeros.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/OrdenarNumeros/OrdenarNumeros.java b/../../LogicaDeProgramacao_AdaSantander/OrdenarNumeros/OrdenarNumeros.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/OrdenarNumeros/OrdenarNumeros.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,50 +0,0 @@
+-package OrdenarNumeros;
+-
+-import java.util.Arrays;
+-
+-public class OrdenarNumeros {
+-
+-    public static void main(String[] args) {
+-        int[] numbers = {5, 4, 1, 2, 3};
+-        int[] ascendingOrder = sortAscendingOrder(numbers);
+-        int[] descendingOrder = sortDescendingOrder(numbers);
+-
+-        System.out.println(Arrays.toString(numbers));
+-        System.out.println(Arrays.toString(ascendingOrder));
+-        System.out.println(Arrays.toString(descendingOrder));
+-    }
+-
+-    public static int[] sortAscendingOrder(int[] lista) {
+-        int[] listaOrdenada = Arrays.copyOf(lista, lista.length);
+-
+-        for (int i = 0; i < listaOrdenada.length - 1; i++) {
+-            for (int j = 0; j < listaOrdenada.length - i - 1; j++) {
+-                if (listaOrdenada[j] > listaOrdenada[j + 1]) {
+-                    int temp = listaOrdenada[j];
+-                    listaOrdenada[j] = listaOrdenada[j + 1];
+-                    listaOrdenada[j + 1] = temp;
+-                }
+-            }
+-        }
+-
+-        return listaOrdenada;
+-    }
+-
+-    public static int[] sortDescendingOrder(int[] lista) {
+-        int[] listaOrdenada = Arrays.copyOf(lista, lista.length);
+-
+-        for (int i = 0; i < listaOrdenada.length - 1; i++) {
+-            for (int j = 0; j < listaOrdenada.length - i - 1; j++) {
+-                if (listaOrdenada[j] < listaOrdenada[j + 1]) {
+-                    int temp = listaOrdenada[j];
+-                    listaOrdenada[j] = listaOrdenada[j + 1];
+-                    listaOrdenada[j + 1] = temp;
+-                }
+-            }
+-        }
+-
+-        return listaOrdenada;
+-    }
+-
+-}
+-
+Index: ../../LogicaDeProgramacao_AdaSantander/ParesImpares/ParesImpares.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/ParesImpares/ParesImpares.java b/../../LogicaDeProgramacao_AdaSantander/ParesImpares/ParesImpares.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/ParesImpares/ParesImpares.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,46 +0,0 @@
+-package ParesImpares;
+-
+-import java.util.Arrays;
+-
+-public class ParesImpares {
+-    public static void main(String[] args) {
+-        int[] numeros = {1, 2, 3, 4, 5, 6};
+-        int[] pares = new int[3];
+-        int[] impares = new int[3];
+-        int paresIndex = 0;
+-        int imparesIndex = 0;
+-
+-        for (int i = 0; i < numeros.length; i++) {
+-            if (numeros[i] % 2 == 0) {
+-                pares[paresIndex] = numeros[i];
+-                paresIndex++;
+-            } else {
+-                impares[imparesIndex] = numeros[i];
+-                imparesIndex++;
+-            }
+-        }
+-
+-        pares = sortAscendingOrder(pares);
+-        impares = sortAscendingOrder(impares);
+-
+-        System.out.println(Arrays.toString(numeros));
+-        System.out.println(Arrays.toString(pares));
+-        System.out.println(Arrays.toString(impares));
+-    }
+-
+-    public static int[] sortAscendingOrder(int[] lista) {
+-        int[] listaOrdenada = Arrays.copyOf(lista, lista.length);
+-
+-        for (int i = 0; i < listaOrdenada.length - 1; i++) {
+-            for (int j = 0; j < listaOrdenada.length - i - 1; j++) {
+-                if (listaOrdenada[j] > listaOrdenada[j + 1]) {
+-                    int temp = listaOrdenada[j];
+-                    listaOrdenada[j] = listaOrdenada[j + 1];
+-                    listaOrdenada[j + 1] = temp;
+-                }
+-            }
+-        }
+-
+-        return listaOrdenada;
+-    }
+-}
+Index: ../../CustomWrintable/.idea/modules.xml
+===================================================================
+diff --git a/../../CustomWrintable/.idea/modules.xml b/../../CustomWrintable/.idea/modules.xml
+deleted file mode 100644
+--- a/../../CustomWrintable/.idea/modules.xml	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/CustomWrintable.iml" filepath="$PROJECT_DIR$/.idea/CustomWrintable.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/.gitignore
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/.gitignore b/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/.gitignore
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/.gitignore	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX04/EX4.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX04/EX4.java b/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX04/EX4.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX04/EX4.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,32 +0,0 @@
+-package Aula03.A03EX04;
+-
+-public class EX4 {
+-
+-    public static int primeiroCaractereUnico(String input) {
+-        int[] ocorrencias = new int[256];
+-
+-
+-        for (char c : input.toCharArray()) {
+-            ocorrencias[c]++;
+-        }
+-
+-
+-        for (int i = 0; i < input.length(); i++) {
+-            if (ocorrencias[input.charAt(i)] == 1) {
+-                return i;
+-            }
+-        }
+-
+-
+-        return -1;
+-    }
+-
+-    public static void main(String[] args) {
+-        String palavra = "amor";
+-        int indice = primeiroCaractereUnico(palavra);
+-
+-        System.out.println("Entrada: " + palavra);
+-        System.out.println("Saída: " + indice);
+-    }
+-}
+-
+Index: ../../CustomWrintable/.idea/.gitignore
+===================================================================
+diff --git a/../../CustomWrintable/.idea/.gitignore b/../../CustomWrintable/.idea/.gitignore
+deleted file mode 100644
+--- a/../../CustomWrintable/.idea/.gitignore	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,8 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+Index: ../../CustomWrintable/AverageTemperature.java
+===================================================================
+diff --git a/../../CustomWrintable/AverageTemperature.java b/../../CustomWrintable/AverageTemperature.java
+deleted file mode 100644
+--- a/../../CustomWrintable/AverageTemperature.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,59 +0,0 @@
+-FireAvgTempWritable> {
+-// Funcao de map
+-public void map(LongWritable key, Text value, Context con)
+-        throws IOException, InterruptedException {
+-// obtendo o conteúdo da linha e convertendo para string
+-        String linha = value.toString();
+-// quebrando a linha em colunas
+-        String[] colunas = linha.split(",");
+-// pegando somente a temperatura (index 8)
+-        float temperatura = Float.parseFloat(colunas[8]);
+-// pegando o mês (atividade 2)
+-        String mes = colunas[2];
+-// ocorrência
+-        int n = 1;
+-// passando temperatura e ocorrência para o sort/shuffle com uma chave
+-        única "media"
+-        con.write(new Text("media"), new FireAvgTempWritable(temperatura, 1));
+-// passando a temperatura por mês (atividade 2)
+-        con.write(new Text(mes), new FireAvgTempWritable(temperatura, 1));
+-        }
+-        }
+-public static class ReduceForAverage extends Reducer<Text, FireAvgTempWritable,
+-        Text, FloatWritable> {
+-    public void reduce(Text key, Iterable<FireAvgTempWritable> values, Context
+-            con)
+-            throws IOException, InterruptedException {
+-// Chega no reduce, uma chave ÚNICA com uma lista de valores do tipo
+-// FireAvgTempWritable (temperatura, ocorrencia)
+-        float somaTemp=0;
+-        int somaN=0;
+-        for(FireAvgTempWritable v:values){
+-            somaTemp+=v.getSomaTemperatura();
+-            somaN+=v.getOcorrencia();
+-        }
+-// calcula a media
+-        float media = somaTemp/somaN;
+-// escreve o resultado final no HDFS
+-        con.write(key, new FloatWritable(media));
+-    }
+-}
+-// Implementação do combiner (mini-reducer)
+-public static class CombineForAverage extends Reducer<Text,
+-        FireAvgTempWritable, Text, FireAvgTempWritable>{
+-    public void reduce(Text key, Iterable<FireAvgTempWritable> values, Context
+-            con) throws IOException, InterruptedException {
+-// no combiner, vamos somar as temperaturas parciais do bloco e também
+-        as ocorrências
+-        float somaTemp=0;
+-        int somaN=0;
+-        for(FireAvgTempWritable v:values){
+-            somaTemp+=v.getSomaTemperatura();
+-            somaN+=v.getOcorrencia();
+-        }
+-// passando para o reduce, os resultados parciais obtidos em cada
+-        mapper
+-        con.write(key, new FireAvgTempWritable(somaTemp, somaN));
+-    }
+-}
+-}
+\ No newline at end of file
+Index: ../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX06/EX6.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX06/EX6.java b/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX06/EX6.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX06/EX6.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,46 +0,0 @@
+-package Aula03.A03EX06;
+-
+-import java.util.Scanner;
+-
+-public class EX6 {
+-
+-    public static boolean verificarTriangulo(double a, double b, double c) {
+-        return (a + b > c) && (a + c > b) && (b + c > a);
+-    }
+-
+-    public static double formulaHeron(double a, double b, double c) {
+-        if (verificarTriangulo(a, b, c)) {
+-            double p = (a + b + c) / 2;
+-            double resultado = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+-            return resultado;
+-        } else {
+-            return -1;
+-        }
+-    }
+-
+-    public static void main(String[] args) {
+-        double lado1;
+-        double lado2;
+-        double lado3;
+-        double resultado;
+-        Scanner scanner = new Scanner(System.in);
+-
+-        System.out.println("Digite o primeiro lado do triângulo:");
+-        lado1 = scanner.nextDouble();
+-
+-        System.out.println("Digite o segundo lado do triângulo:");
+-        lado2 = scanner.nextDouble();
+-
+-        System.out.println("Digite o terceiro lado do triângulo:");
+-        lado3 = scanner.nextDouble();
+-
+-        resultado = formulaHeron(lado1, lado2, lado3);
+-
+-        if (resultado >= 0) {
+-            System.out.printf("A área do triângulo é: %.2f cm²", resultado);
+-        } else {
+-            System.out.println("As medidas não formam um triângulo válido.");
+-        }
+-    }
+-}
+-
+Index: ../../Nova pasta/br/com/ada/catalogoFilmes/Principal.java
+===================================================================
+diff --git a/../../Nova pasta/br/com/ada/catalogoFilmes/Principal.java b/../../Nova pasta/br/com/ada/catalogoFilmes/Principal.java
+deleted file mode 100644
+--- a/../../Nova pasta/br/com/ada/catalogoFilmes/Principal.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,10 +0,0 @@
+-package br.com.ada.catalogoFilmes;
+-
+-public class Principal {
+-
+-	public static void main(String[] args) {
+-		// TODO Auto-generated method stub
+-		System.out.println("Hello World");
+-	}
+-
+-}
+Index: ../../CustomWrintable/.idea/misc.xml
+===================================================================
+diff --git a/../../CustomWrintable/.idea/misc.xml b/../../CustomWrintable/.idea/misc.xml
+deleted file mode 100644
+--- a/../../CustomWrintable/.idea/misc.xml	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="20" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../../CustomWrintable/.idea/vcs.xml
+===================================================================
+diff --git a/../../CustomWrintable/.idea/vcs.xml b/../../CustomWrintable/.idea/vcs.xml
+deleted file mode 100644
+--- a/../../CustomWrintable/.idea/vcs.xml	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../../Nova pasta/br/com/ada/catalogoFilmes/service/AtorService.java
+===================================================================
+diff --git a/../../Nova pasta/br/com/ada/catalogoFilmes/service/AtorService.java b/../../Nova pasta/br/com/ada/catalogoFilmes/service/AtorService.java
+deleted file mode 100644
+--- a/../../Nova pasta/br/com/ada/catalogoFilmes/service/AtorService.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,5 +0,0 @@
+-package br.com.ada.catalogoFilmes.service;
+-
+-public class AtorService {
+-
+-}
+Index: ../../Aula4_Exercicio6/Main.java
+===================================================================
+diff --git a/../../Aula4_Exercicio6/Main.java b/../../Aula4_Exercicio6/Main.java
+deleted file mode 100644
+--- a/../../Aula4_Exercicio6/Main.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,2 +0,0 @@
+-package PACKAGE_NAME;public class Main {
+-}
+Index: ../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX03/EX3.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX03/EX3.java b/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX03/EX3.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/Aula03/A03EX03/EX3.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,46 +0,0 @@
+-package Aula03.A03EX03;
+-
+-import java.util.Scanner;
+-
+-public class EX3 {
+-
+-    public static double calculoSalario(double[] input) {
+-        double tempoServico = input[0];
+-        double inflacao = input[1];
+-        double salario = input[2];
+-
+-        double reajusteTempoServico = 0.0;
+-        if (tempoServico >= 1 && tempoServico <= 5) {
+-            reajusteTempoServico = 0.01;
+-        } else if (tempoServico > 5 && tempoServico < 10) {
+-            reajusteTempoServico = 0.015;
+-        } else if (tempoServico >= 10) {
+-            reajusteTempoServico = 0.02;
+-        }
+-
+-        double reajusteTotal = reajusteTempoServico + inflacao / 100.0;
+-        double novoSalario = salario + salario * reajusteTotal;
+-
+-        // Arredonda o novoSalario para duas casas decimais
+-        novoSalario = Math.round(novoSalario * 100.0) / 100.0;
+-
+-        return novoSalario;
+-    }
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        double[] salarioPercentual = new double[3]; // Corrigido o tamanho do array para 3
+-
+-        System.out.println("Digite o tempo de serviço:");
+-        salarioPercentual[0] = scanner.nextDouble();
+-        System.out.println("Digite o valor da inflação:");
+-        salarioPercentual[1] = scanner.nextDouble();
+-        System.out.println("Digite o salário do funcionário:");
+-        salarioPercentual[2] = scanner.nextDouble();
+-
+-        double novoSalario = calculoSalario(salarioPercentual);
+-        System.out.println("Novo salário: " + novoSalario);
+-    }
+-}
+Index: ../../LogicaDeProgramacao_AdaSantander/Ada_Fahrenheit/Calculo_Fahrenheit.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/Ada_Fahrenheit/Calculo_Fahrenheit.java b/../../LogicaDeProgramacao_AdaSantander/Ada_Fahrenheit/Calculo_Fahrenheit.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/Ada_Fahrenheit/Calculo_Fahrenheit.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,20 +0,0 @@
+-package Calculo_Fahrenheit;
+-
+-import java.util.Scanner;
+-
+-public class Calculo_Fahrenheit {
+-
+-    public static double converter_Fahrenheit(double fahrenheit) {
+-        double celsius = (fahrenheit - 32) * 5 / 9;
+-        return celsius;
+-    }
+-
+-    public static void main(String[] args) {
+-        Scanner scanner = new Scanner(System.in);
+-        System.out.println("Digite a temperatura em Fahrenheit para converter para Celsius:");
+-        double graus = scanner.nextDouble();
+-        double temperaturaCelsius = converter_Fahrenheit(graus);
+-        System.out.printf("Graus Fahrenheit: %.2f para graus Celsius: %.2f", graus, temperaturaCelsius);
+-        scanner.close();
+-    }
+-}
+Index: ../../LogicaDeProgramacao_AdaSantander/Main.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/Main.java b/../../LogicaDeProgramacao_AdaSantander/Main.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/Main.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,5 +0,0 @@
+-public class Main {
+-    public static void main(String[] args) {
+-        System.out.println("Hello World!");
+-    }
+-}
+Index: ../../CustomWrintable/.idea/CustomWrintable.iml
+===================================================================
+diff --git a/../../CustomWrintable/.idea/CustomWrintable.iml b/../../CustomWrintable/.idea/CustomWrintable.iml
+deleted file mode 100644
+--- a/../../CustomWrintable/.idea/CustomWrintable.iml	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,11 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="JAVA_MODULE" version="4">
+-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$">
+-      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../../LogicaDeProgramacao_AdaSantander/Frutaria/Compra.java
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/Frutaria/Compra.java b/../../LogicaDeProgramacao_AdaSantander/Frutaria/Compra.java
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/Frutaria/Compra.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,26 +0,0 @@
+-package Frutaria;
+-
+-public class Compra {
+-    private double total;
+-
+-    public Compra() {
+-        total = 0;
+-    }
+-
+-    public void adicionarFruta(String fruta, int quantidade) {
+-        double precoUnitario = 1.45;
+-
+-        if (quantidade >= 10) {
+-            precoUnitario = 1.25;
+-        }
+-
+-        double precoTotal = precoUnitario * quantidade;
+-        total += precoTotal;
+-
+-        System.out.printf("O preço total é: R$%.2f%n", precoTotal);
+-    }
+-
+-    public double calcularPrecoTotal() {
+-        return total;
+-    }
+-}
+\ No newline at end of file
+Index: ../../LogicaDeProgramacao_AdaSantander/.idea/.gitignore
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/.idea/.gitignore b/../../LogicaDeProgramacao_AdaSantander/.idea/.gitignore
+deleted file mode 100644
+--- a/../../LogicaDeProgramacao_AdaSantander/.idea/.gitignore	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../../CustomWrintable/HigherAverageTemperature.java
+===================================================================
+diff --git a/../../CustomWrintable/HigherAverageTemperature.java b/../../CustomWrintable/HigherAverageTemperature.java
+deleted file mode 100644
+--- a/../../CustomWrintable/HigherAverageTemperature.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,104 +0,0 @@
+-// registro das classes
+-j2.setJarByClass(HigherAverageTemperature.class);
+-        j2.setMapperClass(MapForHigherAverage.class);
+-        j2.setReducerClass(ReduceForHigherAverage.class);
+-// definição dos tipos de saída (map e reduce)
+-        j2.setMapOutputKeyClass(Text.class);
+-        j2.setMapOutputValueClass(FireHigherWritable.class);
+-        j2.setOutputKeyClass(Text.class);
+-        j2.setOutputValueClass(FloatWritable.class);
+-// cadastrar os arquivos de entrada e saída
+-        FileInputFormat.addInputPath(j2, intermediate);
+-        FileOutputFormat.setOutputPath(j2, output);
+-// lanca o job1 e aguarda sua execucao
+-        j2.waitForCompletion(true);
+-        }
+-public static class MapForAverage extends Mapper<LongWritable, Text, Text,
+-        FireAvgTempWritable> {
+-    // Funcao de map
+-    public void map(LongWritable key, Text value, Context con)
+-            throws IOException, InterruptedException {
+-// obtendo o conteúdo da linha e convertendo para string
+-        String linha = value.toString();
+-// quebrando a linha em colunas
+-        String[] colunas = linha.split(",");
+-// pegando somente a temperatura (index 8)
+-        float temperatura = Float.parseFloat(colunas[8]);
+-// pegando o mês (atividade 2)
+-        String mes = colunas[2];
+-// ocorrência
+-        int n = 1;
+-// passando a temperatura por mês (atividade 2)
+-        con.write(new Text(mes), new FireAvgTempWritable(temperatura, 1));
+-    }
+-}
+-public static class ReduceForAverage extends Reducer<Text, FireAvgTempWritable,
+-        Text, FloatWritable> {
+-    public void reduce(Text key, Iterable<FireAvgTempWritable> values, Context
+-            con)
+-            throws IOException, InterruptedException {
+-// Chega no reduce, uma chave ÚNICA com uma lista de valores do tipo
+-// FireAvgTempWritable (temperatura, ocorrencia)
+-        float somaTemp=0;
+-        int somaN=0;
+-        for(FireAvgTempWritable v:values){
+-            somaTemp+=v.getSomaTemperatura();
+-            somaN+=v.getOcorrencia();
+-        }
+-// calcula a media
+-        float media = somaTemp/somaN;
+-// escreve o resultado final no HDFS
+-        con.write(key, new FloatWritable(media));
+-    }
+-}
+-// Implementação do combiner (mini-reducer)
+-public static class CombineForAverage extends Reducer<Text,
+-        FireAvgTempWritable, Text, FireAvgTempWritable>{
+-    public void reduce(Text key, Iterable<FireAvgTempWritable> values, Context
+-            con) throws IOException, InterruptedException {
+-// no combiner, vamos somar as temperaturas parciais do bloco e também
+-        as ocorrências
+-        float somaTemp=0;
+-        int somaN=0;
+-        for(FireAvgTempWritable v:values){
+-            somaTemp+=v.getSomaTemperatura();
+-            somaN+=v.getOcorrencia();
+-        }
+-// passando para o reduce, os resultados parciais obtidos em cada
+-        mapper
+-        con.write(key, new FireAvgTempWritable(somaTemp, somaN));
+-    }
+-}
+-public static class MapForHigherAverage extends Mapper<LongWritable, Text,
+-        Text, FireHigherWritable>{
+-    public void map(LongWritable key, Text value, Context con) throws
+-            IOException, InterruptedException {
+-// pega o conteudo da linha do arquivo gerado pela primeira rotina
+-        MapReduce
+-        String linha = value.toString();
+-// separa o conteúdo da linha em colunas
+-        String[] colunas = linha.split("\t"); // LEMBRAR
+-        String mes = colunas[0];
+-        float temperatura = Float.parseFloat(colunas[1]);
+-        con.write(new Text("Maior"), new FireHigherWritable(mes, temperatura));
+-    }
+-}
+-public static class ReduceForHigherAverage extends Reducer<Text,
+-        FireHigherWritable, Text, FloatWritable> {
+-    public void reduce(Text key, Iterable<FireHigherWritable> values, Context
+-            con) throws IOException, InterruptedException {
+-// busca pela maior temperatura
+-        float maiorTemp = Float.MIN_VALUE;
+-        String maiorMes = null;
+-        for(FireHigherWritable v:values){
+-            float temp = v.getTemperatura();
+-            String mes = v.getMes();
+-            if(temp > maiorTemp){
+-                maiorMes = mes;
+-                maiorTemp = temp;
+-            }
+-        }
+-        con.write(new Text(maiorMes), new FloatWritable(maiorTemp));
+-    }
+-}
+-}
+\ No newline at end of file
+Index: ../../CustomWrintable/FireAvgTempWritable.java
+===================================================================
+diff --git a/../../CustomWrintable/FireAvgTempWritable.java b/../../CustomWrintable/FireAvgTempWritable.java
+deleted file mode 100644
+--- a/../../CustomWrintable/FireAvgTempWritable.java	(revision 686235186007f77dfa485149377f47699b29e174)
++++ /dev/null	(revision 686235186007f77dfa485149377f47699b29e174)
+@@ -1,75 +0,0 @@
+-package advanced.customwritable;
+-import org.apache.hadoop.io.Writable;
+-import org.apache.hadoop.io.WritableComparable;
+-import java.io.DataInput;
+-import java.io.DataOutput;
+-import java.io.IOException;
+-import java.util.Objects;
+-/*
+-Precisamos que essa nova classe seja serializável (Writable) para a transmissão
+-dos dados entre os DataNodes
+-No Hadoop, o tipo Writable é sempre um Java Bean.
+-Java Bean é caracterizado por:
+-- ter um construtor padrão (vazio),
+-- atributos privados,
+-- getters e setters para cada atributo
+-LEMBRETE: a classe deve ser comparável com ela mesma (etapa sort/shuffle)
+-*/
+-public class FireAvgTempWritable implements WritableComparable<FireAvgTempWritable>
+-{
+-    private float somaTemperatura;
+-    private int ocorrencia;
+-    public FireAvgTempWritable() {
+-    }
+-    public FireAvgTempWritable(float somaTemperatura, int ocorrencia) {
+-        this.somaTemperatura = somaTemperatura;
+-        this.ocorrencia = ocorrencia;
+-    }
+-    public float getSomaTemperatura() {
+-        return somaTemperatura;
+-    }
+-    public void setSomaTemperatura(float somaTemperatura) {
+-        this.somaTemperatura = somaTemperatura;
+-    }
+-    public int getOcorrencia() {
+-        return ocorrencia;
+-    }
+-    public void setOcorrencia(int ocorrencia) {
+-        this.ocorrencia = ocorrencia;
+-    }
+-    @Override
+-    public boolean equals(Object o) {
+-        if (this == o) return true;
+-        if (o == null || getClass() != o.getClass()) return false;
+-        FireAvgTempWritable that = (FireAvgTempWritable) o;
+-        return Float.compare(that.somaTemperatura, somaTemperatura) == 0 &&
+-                ocorrencia == that.ocorrencia;
+-    }
+-    @Override
+-    public int hashCode() {
+-        return Objects.hash(somaTemperatura, ocorrencia);
+-    }
+-    @Override
+-    public String toString() {
+-        return super.toString();
+-    }
+-    @Override
+-    public int compareTo(FireAvgTempWritable o) {
+-        if(this.hashCode() < o.hashCode()){
+-            return -1;
+-        }else if(this.hashCode() > o.hashCode()){
+-            return +1;
+-        }
+-        return 0;
+-    }
+-    @Override
+-    public void write(DataOutput dataOutput) throws IOException {
+-        dataOutput.writeFloat(somaTemperatura);
+-        dataOutput.writeInt(ocorrencia);
+-    }
+-    @Override
+-    public void readFields(DataInput dataInput) throws IOException {
+-        somaTemperatura = dataInput.readFloat();
+-        ocorrencia = dataInput.readInt();
+-    }
+-}
+\ No newline at end of file
+Index: ../../LogicaDeProgramacao_AdaSantander/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_20\" default=\"true\" project-jdk-name=\"openjdk-20\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/.idea/misc.xml b/../../LogicaDeProgramacao_AdaSantander/.idea/misc.xml
+--- a/../../LogicaDeProgramacao_AdaSantander/.idea/misc.xml	(revision 686235186007f77dfa485149377f47699b29e174)
++++ b/../../LogicaDeProgramacao_AdaSantander/.idea/misc.xml	(date 1695641726491)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="openjdk-20" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+Index: ../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/triangle_project/triangle.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/triangle_project/triangle.iml b/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/triangle_project/triangle.iml
+new file mode 100644
+--- /dev/null	(date 1690587839749)
++++ b/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/triangle_project/triangle.iml	(date 1690587839749)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: ../../LogicaDeProgramacao_AdaSantander/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$/..\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/.idea/vcs.xml b/../../LogicaDeProgramacao_AdaSantander/.idea/vcs.xml
+--- a/../../LogicaDeProgramacao_AdaSantander/.idea/vcs.xml	(revision 686235186007f77dfa485149377f47699b29e174)
++++ b/../../LogicaDeProgramacao_AdaSantander/.idea/vcs.xml	(date 1690587977677)
+@@ -2,5 +2,7 @@
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="$PROJECT_DIR$/triangle_project" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: ../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$/..\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/vcs.xml b/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/vcs.xml
+--- a/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/vcs.xml	(revision 686235186007f77dfa485149377f47699b29e174)
++++ b/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/vcs.xml	(date 1690587977677)
+@@ -2,5 +2,7 @@
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="$PROJECT_DIR$/triangle_project" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: ../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_20\" default=\"true\" project-jdk-name=\"openjdk-20\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/misc.xml b/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/misc.xml
+--- a/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/misc.xml	(revision 686235186007f77dfa485149377f47699b29e174)
++++ b/../../LogicaDeProgramacao_AdaSantander/out/production/LogicaDeProgramacao_AdaSantander/.idea/misc.xml	(date 1695641726491)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="openjdk-20" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
