@@ -104,10 +104,15 @@ public class Main {
                             + getKey(resultMaisCartoesAmarelos) + ", com um total de "
                             + getValue(resultMaisCartoesAmarelos) + " cartões amarelos.");
 
-                    System.out.println("\n7- Jogador com mais cartões vermelhos: "
-                            + jogadorComMaisCartoesVermelhosService.jogadorComMaisCartoesVermelhos());
-                    System.out.println(
-                            "\n8- Plcar da partida com mais gols: " + partidaComMaisGolsService.partidaComMaisGols());
+                    Map<String, Long> resultMaisCartoesVermelhos = jogadorComMaisCartoesVermelhosService
+                            .jogadorComMaisCartoesVermelhos();
+                    System.out.println("\n7- Jogador com mais cartões vermelhos: " + getKey(resultMaisCartoesVermelhos)
+                            + ", com um total de " + getValue(resultMaisCartoesVermelhos) + " cartões vermelhos.");
+
+                    DadosFullFutebol partidaComMaisGols = partidaComMaisGolsService.partidaComMaisGols();
+                    System.out.println("\n8- Placar da partida com mais gols: " + partidaComMaisGols.getMandante() + " "
+                            + partidaComMaisGols.getMandantePlacar() + " x " + partidaComMaisGols.getVisitantePlacar()
+                            + " " + partidaComMaisGols.getVisitante());
                     break;
             }
         }
